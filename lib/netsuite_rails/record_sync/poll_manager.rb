@@ -41,6 +41,27 @@ module NetSuiteRails
 
         search = opts[:netsuite_record_class].search(
           poll_criteria(klass, opts).merge({
+            columns: {
+              "tranSales:basic" => {
+                 'platformCommon:internalId/' => {},
+                 'platformCommon:tranId/' => {},
+                 'platformCommon:tranDate/' => {},
+                 'platformCommon:dueDate/' => {},
+                 'platformCommon:dateCreated/' => {},
+                 'platformCommon:lastModifiedDate/' => {},
+                 'platformCommon:terms/' => {},
+                 'platformCommon:currency/' => {},
+                 'platformCommon:status/' => {},
+                 'platformCommon:entity/' => {},
+                 # 'platformCommon:amount/' => {},
+              },
+
+              # :user_total,
+              # :tax_total,
+              # :discount_date,
+              # :expense_list,
+              # :item_list
+            },
             preferences: {
               body_fields_only: opts[:body_fields_only],
               page_size: opts[:page_size]
